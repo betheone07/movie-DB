@@ -1,0 +1,20 @@
+<div id="parent-movie">
+    <img src="../../assets/logo.png" alt="home" height="30" width="30" routerLink="/landingpage" routerLinkActive="active">
+    <div id="top-banner">
+        <div id="left">
+            {{selectedCategory | titlecase}} Movies
+        </div>
+        <div id="right"> 
+            {{start}} - {{end}} of {{totalMovies}}
+            <img id="left-arrow" (click)="getPreviousMovieList()" src="../../assets/arrow-2.png" alt="">
+            <img id="right-arrow" (click)="getNextMovieList()" src="../../assets/arrow-1.png" alt="">
+        </div>  
+    </div>
+    <div id="master-list"> 
+        <div *ngFor="let movie of movieList">
+            <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" alt="">
+            <h4>{{movie.title}}</h4>
+            <p>{{movie.release_date | date}}</p>
+        </div>
+    </div>
+</div>
