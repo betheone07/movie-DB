@@ -1,0 +1,41 @@
+img{
+    cursor: pointer;
+}
+
+.mat-chip{
+    background-color: #4186E0;
+    color: #FFF;
+    width: max-content;
+    box-shadow: 0, 0, 2, 0 rgba(0, 0, 0, .1);
+}
+
+#genre-banner{
+    color: #374053;
+    padding-bottom: 6vh;
+}
+
+.genres{
+    padding: 15vw;
+}
+
+#parent-genre{
+    padding: 1em;
+    margin: auto;
+}
+
+#genre-bottom{
+    display: flex;
+    padding-left: 74vw;
+}
+
+#genre-button{
+    color: #4186E0;
+    border-color: #4186E0;
+    padding: .5em 3em .5em 3em;
+}
+
+#genre-button:hover{
+    color: #FFF;
+    background-color: #4186E0;
+    padding: .5em 4em .5em 4em;
+}
