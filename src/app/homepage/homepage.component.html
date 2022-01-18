@@ -1,0 +1,74 @@
+<div id="MovieDashboard">
+  <img src="../../assets/logo.png" id="home" height="30" width="30" routerLink="/landingpage" routerLinkActive="active">
+  <div id="upcoming">
+    <h2>Upcoming</h2>
+  </div>
+  <div class="carousel" data-carousel>
+    <img src="../../assets/arrow-2.png" class="carousel-button prev" data-carousel-button="prev" #prev
+      (click)="prevImage()">
+    <img src="../../assets/arrow-1.png" class="carousel-button next" data-carousel-button="next" #next
+      (click)="nextImage()">
+    <ul data-slides>
+      <li class="slide" data-active>
+        <div class="movie-banner">
+          <div class="movie-poster">
+            <img class="poster" [src]="'https://image.tmdb.org/t/p/w500' + currentMovie?.poster_path" alt="">
+          </div>
+          <div class="details">
+            <h1><b>{{currentMovie?.title}}</b></h1>
+            <p>{{currentMovie?.release_date | date: 'dd/MM/yyyy'}} ({{currentMovie?.original_language | uppercase}})</p>
+            <h2>Overview</h2>
+            <p>{{currentMovie?.overview}}</p>
+          </div>
+
+        </div>
+        <img [src]="'https://image.tmdb.org/t/p/w500' + currentMovie?.backdrop_path" alt="">
+      </li>
+      <li *ngFor="let movie of upcomingMovies" class="slide">
+        <div class="movie-banner">
+          <div class="movie-poster">
+            <img class="poster" [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" alt="">
+          </div>
+          <div class="details">
+            <h1><b>{{movie.title}}</b></h1>
+            <p>{{movie.release_date | date: 'dd/MM/yyyy'}} ({{movie.original_language | uppercase}})</p>
+            <h2>Overview</h2>
+            <p>{{movie.overview}}</p>
+          </div>
+        </div>
+        <img [src]="'https://image.tmdb.org/t/p/w500' + movie.backdrop_path" alt="">
+      </li>
+    </ul>
+  </div>
+  <div id="more-movies">
+    <div>
+      <h2 id="left">Top Rated</h2>
+    </div>
+    <div>
+      <a id="right" (click)="allTopRatedMoviesPaginated()">View All</a>
+    </div>
+  </div>
+  <div id="flex-movies">
+    <div *ngFor="let movie of topratedMovies" id="movies">
+      <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" alt="">
+      <h4><b>{{movie.title}}</b></h4>
+      <p>{{movie.release_date | date}}</p>
+    </div>
+  </div>
+  <div id="more-movies">
+    <div>
+      <h2 id="left">Popular</h2>
+    </div>
+    <div>
+      <a id="right" (click)="allPopularMoviesPaginated()">View All</a>
+    </div>
+  </div>
+  <div id="flex-movies">
+    <div *ngFor="let movie of popularMovies" id="movies">
+      <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" alt="">
+      <h4><b>{{movie.title}}</b></h4>
+      <p>{{movie.release_date | date}}</p>
+    </div>
+  </div>
+
+</div>
