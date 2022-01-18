@@ -1,0 +1,20 @@
+<div id="parent-genre">
+    <img src="../../assets/logo.png" alt="home" height="30" width="30" routerLink="/landingpage" routerLinkActive="active">
+    <div class="genres">
+        <p id="genre-banner">Select the Genres that you are interested in</p>
+        <mat-chip-list
+        class="example-chip">
+        <mat-chip
+          class="example-box"
+          cdkDrag
+          *ngFor="let genre of genres" (click)="pushGenre(genre)" [disabled]="genre.name && genre.isSelected">
+          {{genre.name}}
+        </mat-chip>
+      </mat-chip-list>
+    </div>
+    
+    <div *ngIf="selectedGenre.length !== 0" id="genre-bottom">
+        <button id="genre-button" mat-stroked-button (click)="gotoDashboard()">Next</button>
+    </div>
+  </div>
+  
